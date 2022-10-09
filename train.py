@@ -197,7 +197,7 @@ def main(args):
     optimizer = optim.SGD([p for p in model.parameters() if p.requires_grad], lr=args.lr, momentum=0.9,
                           weight_decay=1e-4)
     # optimizer = optim.Adam([p for p in model.parameters() if p.requires_grad], lr=args.lr)
-    scheduler = WarmupMultiStepLR(optimizer, [60, 120, 200, 260], gamma=0.1, warmup_iters=1, warmup_factor=0.01)
+    scheduler = WarmupMultiStepLR(optimizer, [60, 120, 200, 260], gamma=0.5, warmup_iters=1, warmup_factor=0.01)
     # scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=cosine_lr_lambda(args.epochs, args.lrf))
 
     kwargs = dict(args=args, model=model, train_loader=train_loader, val_loader=val_loader, criterion=criterion,
