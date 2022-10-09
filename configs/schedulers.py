@@ -1,10 +1,6 @@
-import math
 from bisect import bisect_right
 
-import matplotlib.pyplot as plt
-import numpy as np
 import torch.optim.lr_scheduler as lr_scheduler
-from matplotlib.ticker import MultipleLocator
 
 
 class WarmupMultiStepLR(lr_scheduler._LRScheduler):

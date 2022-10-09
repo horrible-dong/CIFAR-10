@@ -2,7 +2,6 @@ import os
 import threading
 
 from torch import distributed as dist
-from tqdm import tqdm
 
 
 def update(model, loss, optimizer):

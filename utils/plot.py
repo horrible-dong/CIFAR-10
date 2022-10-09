@@ -8,8 +8,8 @@ from utils.io import json_loader
 def plot_example(ys, xlabel, ylabel):
     # data
     # y = [i * 100 for i in y]
-    legends = ["batch_size=16","batch_size=32","batch_size=64",
-               "batch_size=128","batch_size=256","batch_size=512"]
+    legends = ["batch_size=16", "batch_size=32", "batch_size=64",
+               "batch_size=128", "batch_size=256", "batch_size=512"]
     colors = ["red", "blue", "cyan", "purple", "orange", "green"]
     x = np.arange(1, 301)
 

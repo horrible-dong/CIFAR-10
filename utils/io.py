@@ -1,8 +1,5 @@
 import os
 
-import cv2
-import imageio
-import numpy as np
 import torch
 import ujson as json
 from PIL import Image
@@ -58,5 +55,3 @@ def weights_saver(model, path, save_pos=None, state_dict=True, delete_keys=(), d
 
     torch.save(weights_dict, path)
     os.chmod(path, mode)
-
-
