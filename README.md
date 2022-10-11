@@ -56,7 +56,7 @@ loss变化曲线：
 
 
 
-<img src="D:\研究生\课程\人工智能安全\cifar10\images\terminal.png" alt="terminal" style="zoom: 50%;" />
+<img src="./images/terminal.png" alt="terminal" style="zoom: 50%;" />
 
 
 
