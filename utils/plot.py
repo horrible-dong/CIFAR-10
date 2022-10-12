@@ -37,10 +37,16 @@ def plot_example(ys, xlabel, ylabel):
 
     # 画图
     for y, legend, color in zip(ys, legends, colors):
-        if legend != "batch_size=16":
-            continue
+        # if legend != "batch_size=16":
+        #     continue
         # y = [i * 100 for i in y]
         plt.plot(x, y, color=color, label=legend, linewidth=linewidth, markersize=markersize)
+
+    for y, legend, color in zip([ys[0]], [legends[0]], [colors[0]]):
+        # if legend != "batch_size=16":
+        #     continue
+        # y = [i * 100 for i in y]
+        plt.plot(x, y, color=color, label=None, linewidth=linewidth, markersize=markersize)
 
     # 获取坐标轴
     ax = plt.gca()
@@ -72,10 +78,10 @@ def plot_example(ys, xlabel, ylabel):
     plt.ylim(-0.07, 2.1)
 
     # 图例
-    # plt.legend(loc=1, numpoints=1, ncol=1, frameon=False)
-    # leg = plt.gca().get_legend()
-    # ltext = leg.get_texts()
-    # plt.setp(ltext, fontsize=legend_fontsize, fontweight='normal')  # 设置图例字体的大小和粗细
+    plt.legend(loc=1, numpoints=1, ncol=1, frameon=False)
+    leg = plt.gca().get_legend()
+    ltext = leg.get_texts()
+    plt.setp(ltext, fontsize=legend_fontsize, fontweight='normal')  # 设置图例字体的大小和粗细
 
     # plt.savefig('./res.png', format='png')  # 建议保存为svg格式,再用inkscape转为矢量图emf后插入word中
     plt.show()
@@ -89,7 +95,7 @@ def visualize(json_path, epochs):
             loss.append(loss[-1])
         losses.append(loss)
 
-    plot_example(losses, xlabel="epochs", ylabel="Accuracy (%)")
+    plot_example(losses, xlabel="epochs", ylabel="Loss")
 
 
 if __name__ == '__main__':
