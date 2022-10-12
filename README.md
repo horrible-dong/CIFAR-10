@@ -44,11 +44,11 @@ Warmup + MultiStepLr 学习率调整策略：`warmup_epochs=1` `warmup_factor=0.
 
 loss变化曲线：
 
-<img src="./images/loss.png" alt="loss" style="zoom: 33%;" />
+<img src="./images/loss.png" alt="loss" style="zoom: 50%;" />
 
 准确率（Accuracy）变化曲线：
 
-<img src="./images/acc.png" alt="image-20220927160700032" style="zoom: 33%;" />
+<img src="./images/acc.png" alt="image-20220927160700032" style="zoom: 50%;" />
 
 
 

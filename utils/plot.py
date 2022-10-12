@@ -37,9 +37,9 @@ def plot_example(ys, xlabel, ylabel):
 
     # 画图
     for y, legend, color in zip(ys, legends, colors):
-        # if legend != "batch_size=16":
-        #     continue
-        # y = [i * 100 for i in y]
+        if legend != "batch_size=16":
+            continue
+        y = [i * 100 for i in y]
         plt.plot(x, y, color=color, label=legend, linewidth=linewidth, markersize=markersize)
 
     # for y, legend, color in zip([ys[0]], [legends[0]], [colors[0]]):
@@ -65,9 +65,9 @@ def plot_example(ys, xlabel, ylabel):
 
     # 坐标间隔
     x_major_locator = MultipleLocator(50)
-    # y_major_locator = MultipleLocator(10)
+    y_major_locator = MultipleLocator(10)
     ax.xaxis.set_major_locator(x_major_locator)
-    # ax.yaxis.set_major_locator(y_major_locator)
+    ax.yaxis.set_major_locator(y_major_locator)
 
     # 坐标标签
     plt.xlabel(xlabel, fontsize=xylabel_fontsize)
@@ -75,10 +75,10 @@ def plot_example(ys, xlabel, ylabel):
 
     # 坐标范围
     plt.xlim(-0.07, len(x) + 0.09)
-    plt.ylim(-0.07, 2.1)
+    plt.ylim(-0.07, 100.1)
 
     # 图例
-    plt.legend(loc=1, numpoints=1, ncol=1, frameon=False)
+    plt.legend(loc=4, numpoints=1, ncol=1, frameon=False)
     leg = plt.gca().get_legend()
     ltext = leg.get_texts()
     plt.setp(ltext, fontsize=legend_fontsize, fontweight='normal')  # 设置图例字体的大小和粗细
@@ -90,12 +90,12 @@ def plot_example(ys, xlabel, ylabel):
 def visualize(json_path, epochs):
     losses = []
     for b in ["16", "32", "64", "128", "256", "512"]:
-        loss = json_loader(rf"D:\研究生\projects\Gridet\visualize\res-{b}.json")["loss"]
+        loss = json_loader(rf"D:\研究生\projects\Gridet\visualize\res-{b}.json")["accuracy"]
         for _ in range(300 - len(loss)):
             loss.append(loss[-1])
         losses.append(loss)
 
-    plot_example(losses, xlabel="epochs", ylabel="Loss")
+    plot_example(losses, xlabel="epochs", ylabel="Accuracy (%)")
 
 
 if __name__ == '__main__':
