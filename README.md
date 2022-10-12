@@ -30,9 +30,9 @@ CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 train.py  --dataset cifar10
 
 `epochs=300`
 
-`batch_size=32`
+`batch_size=16`
 
-SGD优化器：`初始lr=0.01` `batch_size=32` `momentum=0.9` `weight_decay=1e-4`
+SGD优化器：`初始lr=0.01`  `momentum=0.9` `weight_decay=1e-4`
 
 Warmup + MultiStepLr 学习率调整策略：`warmup_epochs=1` `warmup_factor=0.01` `step=[60, 120, 200, 260]` `step_factor=0.5`
 
@@ -52,7 +52,7 @@ loss变化曲线：
 
 
 
-**最终准确率为 94.29%，召回率为 94.29%，精确率为 94.29%，F1-Score为 94.28%**
+**最终准确率为 94.72%，召回率为 94.72%，精确率为 94.73%，F1-Score为 94.72%**
 
 
 
@@ -69,7 +69,7 @@ loss变化曲线：
 |    1e-2    |     1      |    NaN    |        /        |
 |    1e-2    |     4      |    NaN    |        /        |
 |    1e-2    |     8      |    NaN    |        /        |
-|    1e-2    |     16     | **0.200** |    **94.52**    |
+|    1e-2    |     16     | **0.223** |    **94.73**    |
 |    1e-2    |     32     |   0.242   |      94.29      |
 |    1e-2    |     64     |   0.269   |      92.53      |
 |    1e-2    |    128     |   0.316   |      90.88      |
@@ -100,7 +100,7 @@ loss变化曲线：
 
 在训练本网络时：
 
-- 初始学习率为 1e-2，当 batch_size=1,4,8 时，网络会出现梯度爆炸的情况；当 batch_size=16 时，最终loss数值最小，最终准确率最高；从 batch_size=16 开始，随着 batch_size 的增大，网络训练效果逐渐变差。
+- 初始学习率为 1e-2，当 batch_size=1,4,8 时，网络会出现梯度爆炸的情况；当 batch_size=16 时，最终loss数值最小，最终准确率最高，达到了94.73%；从 batch_size=16 开始，随着 batch_size 的增大，网络训练效果逐渐变差。
 
 - 初始学习率为 1e-4，当 batch_size=1,4,8 时，随着 batch_size 的增大，网络训练效果逐渐变好；当 batch_size=8 时，最终loss数值最小，最终准确率最高；当 batch_size>8 时，随着 batch_size 的增大，网络训练效果逐渐变差。
 
